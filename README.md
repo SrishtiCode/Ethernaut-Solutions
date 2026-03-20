@@ -1,66 +1,65 @@
-## Foundry
+## Ethernaut Solutions (Web3 Security)# Ethernaut Solutions — Web3 Security
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Solutions to the [Ethernaut CTF](https://ethernaut.openzeppelin.com/) by OpenZeppelin — a hands-on platform for learning smart contract security through real vulnerabilities.
 
-Foundry consists of:
+---
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## About
 
-## Documentation
+Ethernaut is a war game that teaches Ethereum smart contract security through practical challenges.
 
-https://book.getfoundry.sh/
+This repository documents:
 
-## Usage
+- Solutions to each level using Foundry
+- Exploit scripts with documented methodology
+- Vulnerability breakdowns from first principles
+- Real-world attack patterns and their implications
 
-### Build
+---
 
-```shell
-$ forge build
+## Tech Stack
+
+- Solidity
+- Foundry (Forge)
+- EVM (Opcodes, Storage, Memory)
+- Git & GitHub
+
+---
+
+## Project Structure
+```
+├── src/        # Challenge contracts
+├── script/     # Exploit scripts (Foundry)
+├── lib/        # Dependencies (forge-std, OpenZeppelin)
+├── foundry.toml
+└── README.md
 ```
 
-### Test
+---
 
-```shell
-$ forge test
+## How to Run
+```bash
+forge build
+
+forge script script/<LevelSolution>.s.sol \
+  --rpc-url <RPC_URL> \
+  --private-key <PRIVATE_KEY> \
+  --broadcast \
+  --tc <ContractName> -vvvv
 ```
 
-### Format
+---
 
-```shell
-$ forge fmt
-```
+## Disclaimer
 
-### Gas Snapshots
+This repository is for educational purposes only. All exploits are performed on CTF environments.
 
-```shell
-$ forge snapshot
-```
+---
 
-### Anvil
+## Connect
 
-```shell
-$ anvil
-```
+Open to conversations on Web3 security, smart contract auditing, and CTFs.
 
-### Deploy
+If you find this useful, consider starring the repository.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
 
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
