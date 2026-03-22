@@ -1,28 +1,22 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-//This contract locks the tokens for the 10 years but the restriction are incomplete
-/*1.  It creates the ERC20 token 
-2. Gives all the token to the player
-3. Prevents the player from calling transfer() until time expires */
-
-
 import "openzeppelin-contracts-08/token/ERC20/ERC20.sol";
 
 contract NaughtCoin is ERC20 {
     // string public constant name = 'NaughtCoin';
     // string public constant symbol = '0x0';
     // uint public constant decimals = 18;
-    uint256 public timeLock = block.timestamp + 10 * 365 days;  //->state variable -> Tokens are locked for 10 years from deployment
-    uint256 public INITIAL_SUPPLY; //->Stores total tokens minted
-    address public player;//->player address receives all tokens
+    uint256 public timeLock = block.timestamp + 10 * 365 days;
+    uint256 public INITIAL_SUPPLY;
+    address public player;
 
     constructor(address _player) ERC20("NaughtCoin", "0x0") {
         player = _player;
         INITIAL_SUPPLY = 1000000 * (10 ** uint256(decimals()));
         // _totalSupply = INITIAL_SUPPLY;
         // _balances[player] = INITIAL_SUPPLY;
-        _mint(player, INITIAL_SUPPLY); //All tokens are minted to the player
+        _mint(player, INITIAL_SUPPLY);
         emit Transfer(address(0), player, INITIAL_SUPPLY);
     }
 
@@ -31,19 +25,12 @@ contract NaughtCoin is ERC20 {
     }
 
     // Prevent the initial owner from transferring tokens until the timelock has passed
-    modifier lockTokens() {//->controls who can transfer tokens.
+    modifier lockTokens() {
         if (msg.sender == player) {
-            require(block.timestamp > timeLock);//Player cannot transfer until 10 years later.
+            require(block.timestamp > timeLock);
             _;
         } else {
             _;
         }
     }
 }
-
-/*super.transfer(_to, _value); meaning  
-balances[msg.sender] -= value
-balances[_to] += value
-
-ERC20 has MULTIPLE transfer pathways
-*/
