@@ -1,0 +1,49 @@
+{
+  "transactions": [
+    {
+      "hash": "0xdeb59ede3564d52f3e880d5cfbfd879aa67c0d4ba940397c49a0bde824b5dcdf",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0x4e368a8a46c44487bad324b0c681c5283fb7a25e",
+      "function": "flip(bool)",
+      "arguments": [
+        "true"
+      ],
+      "transaction": {
+        "from": "0x06714e8c7641d35bb3613af5e9e214c138707bf5",
+        "to": "0x4e368a8a46c44487bad324b0c681c5283fb7a25e",
+        "gas": "0xb757",
+        "value": "0x0",
+        "input": "0x1d263f670000000000000000000000000000000000000000000000000000000000000001",
+        "nonce": "0x41",
+        "chainId": "0xaa36a7"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x80cd67",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xdeb59ede3564d52f3e880d5cfbfd879aa67c0d4ba940397c49a0bde824b5dcdf",
+      "transactionIndex": "0x63",
+      "blockHash": "0x0f2d9dfeb6a977e4ff4e8de116b113d50c4264b4c44d3f5e8afe07de14aee3b5",
+      "blockNumber": "0x9f3147",
+      "gasUsed": "0x71b2",
+      "effectiveGasPrice": "0xf4250",
+      "from": "0x06714e8c7641d35bb3613af5e9e214c138707bf5",
+      "to": "0x4e368a8a46c44487bad324b0c681c5283fb7a25e",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1773318157409,
+  "chain": 11155111,
+  "commit": null
+}

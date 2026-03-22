@@ -1,0 +1,49 @@
+{
+  "transactions": [
+    {
+      "hash": "0x8ff427d3637e1fdac9a895604f7023166d97f633d2a102f1bcbf5d41a7a4a3e9",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0x96e2087e837fd317b2fce80d03cfdbad09a75833",
+      "function": "destroy(address)",
+      "arguments": [
+        "0x06714e8c7641d35Bb3613af5E9e214C138707Bf5"
+      ],
+      "transaction": {
+        "from": "0x06714e8c7641d35bb3613af5e9e214c138707bf5",
+        "to": "0x96e2087e837fd317b2fce80d03cfdbad09a75833",
+        "gas": "0x986e",
+        "value": "0x0",
+        "input": "0x00f55d9d00000000000000000000000006714e8c7641d35bb3613af5e9e214c138707bf5",
+        "nonce": "0x95",
+        "chainId": "0xaa36a7"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0xf4cab0",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0x8ff427d3637e1fdac9a895604f7023166d97f633d2a102f1bcbf5d41a7a4a3e9",
+      "transactionIndex": "0x79",
+      "blockHash": "0xeaa4ab4d0b769ab68c68396cee6a8e5d5ddab82be2e79c31850d8a2fb4aca20c",
+      "blockNumber": "0x9ffb63",
+      "gasUsed": "0x683a",
+      "effectiveGasPrice": "0xf424f",
+      "from": "0x06714e8c7641d35bb3613af5e9e214c138707bf5",
+      "to": "0x96e2087e837fd317b2fce80d03cfdbad09a75833",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1774019354147,
+  "chain": 11155111,
+  "commit": null
+}
