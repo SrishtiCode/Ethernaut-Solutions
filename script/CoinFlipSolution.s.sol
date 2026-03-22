@@ -31,3 +31,33 @@ contract CoinFlipSolution is Script {
     }
 }
 
+/*forge script script/CoinFlipSolution.s.sol \
+--rpc-url $RPC_URL \
+--private-key $PRIVATE_KEY \
+--broadcast -vvvv \
+--tc CoinFlipSolution
+[⠊] Compiling...
+No files changed, compilation skipped
+Traces:
+  [72718] CoinFlipSolution::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [29267] → new Player@0xb3CFf8447F1FB4c0aE4cd6282B40b67BfB2DEcd2
+    │   ├─ [12787] 0x4E368a8a46c44487BAD324B0c681C5283fb7A25e::flip(false)
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 62 bytes of code
+    ├─ [295] 0x4E368a8a46c44487BAD324B0c681C5283fb7A25e::consecutiveWins() [staticcall]
+    │   └─ ← [Return] 10
+    ├─ [0] console::log("consecutiveWins:", 10) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    └─ ← [Stop]
+
+
+Script ran successfully.
+
+== Logs ==
+  consecutiveWins: 10*/
