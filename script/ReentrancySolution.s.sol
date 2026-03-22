@@ -44,7 +44,3 @@ contract ReentrancySolution is Script {
         vm.stopBroadcast();
     }
 }
-
-    ==========================
-
-    ONCHAIN EXECUTION COMPLETE & SUCCESSFUL*/
